@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () => Scaffold.of(context).openDrawer(),
             child: Image.asset('images/logo.png', width: 30.0),
           ),
           const CircleAvatar(
