@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.black.withOpacity(0.5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children: const [
                           Text(
                             'Rick Astley',
                             style: TextStyle(
@@ -57,6 +57,23 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
               ),
+              const DrawerItem(
+                icon: Icons.home,
+                title: 'Home',
+                color: appAccentColor,
+              ),
+              const DrawerItem(
+                icon: Icons.chat_bubble_outline,
+                title: 'Chat',
+              ),
+              const DrawerItem(
+                icon: Icons.ac_unit_rounded,
+                title: 'Pro',
+              ),
+              const DrawerItem(
+                icon: Icons.supervised_user_circle_outlined,
+                title: 'Profile',
+              ),
             ],
           ),
         ),
@@ -66,6 +83,50 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: const [
               CustomAppBar(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DrawerItem extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final Color color;
+
+  const DrawerItem({
+    Key? key,
+    required this.title,
+    required this.icon,
+    this.color = appTextOpacityColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: appSecondaryColor,
+      child: InkWell(
+        splashColor: appTextOpacityColor.withOpacity(0.3),
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                color: color,
+                size: 22.0,
+              ),
+              SizedBox(width: 10.0),
+              Text(
+                title,
+                style: TextStyle(
+                  color: color,
+                  fontSize: 18.0,
+                ),
+              )
             ],
           ),
         ),
