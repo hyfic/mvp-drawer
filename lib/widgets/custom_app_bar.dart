@@ -17,11 +17,25 @@ class CustomAppBar extends StatelessWidget {
             onTap: () => Scaffold.of(context).openDrawer(),
             child: Image.asset('images/logo.png', width: 30.0),
           ),
-          const CircleAvatar(
-            backgroundImage: NetworkImage(
-              'https://pbs.twimg.com/profile_images/1374233832057053190/xftrnScS.jpg',
+          const SizedBox(width: 15),
+          const Flexible(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search for rooms',
+                hintStyle: TextStyle(color: appTextOpacityColor),
+                fillColor: appPrimaryColor,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: appTextOpacityColor,
+                ),
+              ),
             ),
-          )
+          ),
         ],
       ),
     );
